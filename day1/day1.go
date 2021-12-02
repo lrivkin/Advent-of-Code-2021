@@ -1,6 +1,7 @@
 package main
 
 import (
+	utils "adventofcode2021"
 	"fmt"
 )
 
@@ -23,10 +24,15 @@ func part2Result(measurements []int64) int {
 }
 
 func main() {
-	content, _ := readLines("inputs/day1-input.txt")
-	//fmt.Println(content)
-	measurements, _ := stringSliceToIntSlice(content)
+	// Tests
+	//tests, _ := utils.ReadLines("tests/day1.txt")
+	//measurements, _ := utils.StringSliceToIntSlice(tests)
+	//fmt.Printf("Part 1 test: %d\n", part1(measurements))
+	//fmt.Printf("Part 2 tests: %d\n", part2Result(measurements))
+
 	//fmt.Println(numbers)
+	content, _ := utils.ReadLines("inputs/day1.txt")
+	measurements, _ := utils.StringSliceToIntSlice(content)
 	part1Result := part1(measurements)
 	fmt.Printf("Part 1: Total increased = %v\n", part1Result)
 	fmt.Printf("Part 2: With sliding windows = %v", part2Result(measurements))
