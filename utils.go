@@ -27,3 +27,16 @@ func StringSliceToIntSlice(input []string) ([]int64, error) {
 	}
 	return numbers, nil
 }
+
+func StringListToIntSlice(input string) ([]int, error) {
+	var numbers []int
+	separated := strings.Split(input, ",")
+	for _, x := range separated {
+		num, err := strconv.Atoi(strings.TrimSpace(x))
+		if err != nil {
+			return numbers, err
+		}
+		numbers = append(numbers, num)
+	}
+	return numbers, nil
+}

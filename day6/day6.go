@@ -33,15 +33,15 @@ func countFish(input []int, rounds int) int {
 	return len(input)
 }
 
-func smartCount(input[]int, rounds int) int {
+func smartCount(input []int, rounds int) int {
 	pond := make([]int, 9)
 	for _, fish := range input {
 		pond[fish]++
 	}
-	for i:=0; i<rounds; i++ {
+	for i := 0; i < rounds; i++ {
 		deadFish := pond[0]
 		pond = pond[1:]
-		pond[6]+=deadFish
+		pond[6] += deadFish
 		pond = append(pond, deadFish)
 		//fmt.Println(pond)
 	}
