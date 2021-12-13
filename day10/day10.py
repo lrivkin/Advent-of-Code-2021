@@ -47,7 +47,7 @@ def calculate_score(completion_string):
 
 
 if __name__ == "__main__":
-    with open("../inputs/day9.txt") as file:
+    with open("../inputs/day10.txt") as file:
         lines = [x.strip() for x in file.readlines()]
     error_score = 0
     autocomplete_scores = []
