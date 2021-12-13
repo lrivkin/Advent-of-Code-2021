@@ -28,6 +28,25 @@ func StringSliceToIntSlice(input []string) ([]int64, error) {
 	return numbers, nil
 }
 
+func ParseIntGrid(path string) ([][]int, error) {
+	contents, err := ReadLines(path)
+	if err != nil {
+		return nil, err
+	}
+
+	var results [][]int
+	for _, line := range contents {
+		var row []int
+		for _, x := range strings.Split(line, "") {
+			num, _ := strconv.Atoi(x)
+			row = append(row, num)
+		}
+		results = append(results, row)
+	}
+	return results, nil
+}
+
+
 func StringListToIntSlice(input string) ([]int, error) {
 	var numbers []int
 	separated := strings.Split(input, ",")
