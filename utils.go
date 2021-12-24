@@ -16,6 +16,19 @@ func ReadLines(path string) ([]string, error) {
 	return strings.Split(string(contents), "\n"), nil
 }
 
+func ReadBlock(path string) ([][]string, error) {
+	contents, err := ioutil.ReadFile(path)
+	if err != nil {
+		return nil, err
+	}
+	tests := strings.Split(string(contents), "\n\n")
+	var broken [][]string
+	for _, t := range tests {
+		broken = append(broken, strings.Split(t, "\n"))
+	}
+	return broken, nil
+}
+
 func StringSliceToIntSlice(input []string) ([]int64, error) {
 	var numbers []int64
 	for _, x := range input {
@@ -58,4 +71,14 @@ func StringListToIntSlice(input string) ([]int, error) {
 		numbers = append(numbers, num)
 	}
 	return numbers, nil
+}
+
+func GetMapKeys (mymap map[string]struct{}) []string {
+	keys := make([]string, len(mymap))
+	i := 0
+	for k := range mymap {
+		keys[i] = k
+		i++
+	}
+	return keys
 }
